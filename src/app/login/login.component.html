@@ -3,12 +3,12 @@
 <div class="container w-25 border mt-5 p-3 " style="background: rgba(101, 81, 29, 0.5); border-radius: px;">
     <h1 class="text-center">Login page</h1>
   <div class="mt-2 p-2">
-    <input type="text" [placeholder]="acnt" (change)="acnoChange($event)" class="form-control" id="acno">
+    <input type="text" [placeholder]="acnt" #acno class="form-control" id="acno">
   </div>
   <div class="mt-2 p-2">
-    <input type="password" placeholder="pin"(change)=pswChange($event) class="form-control" id="psw">
+    <input type="password" placeholder="pin" #psw class="form-control" id="psw">
   </div>   
   <div class="mt-2 text-center p-2">
-  <button type="button" (click)="Login()" class="btn btn-success">login</button><br>   
+  <button type="button" (click)="Login(acno,psw)" class="btn btn-success">login</button><br>   
   <p>new user? <a href="" style="text-decoration:none ;" class="text-info"></a>register</p> </div>
   </div>
