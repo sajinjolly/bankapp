@@ -1,0 +1,20 @@
+Api- App programimg interface (clint server connection)
+Api 2 types
+https request
+header               ||  body
+secret data          ||datas(JSON/XML)
+
+
+request types
+GET--fetch datas from server
+POST--send data to server 
+PUT--complete updation
+PATCH--partial updation
+DELETE--delete
+
+
+[https://www.apisetu.gov.in/api/cowin]
+
+AJAX
+Api ||  header ||  body
+                |Asynchronous synchronous

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-iYQeCzEYFbKjA/T2uDLTpkwGzCiq6soy8tYaI1GyVh/UjpbCx/TYkiZhlZB6+fzT" crossorigin="anonymous">
+
+</head>
+<body>
+    <div class="contrainer-center w-50 bg-light">
+        <div class="row">
+            <div class="col-4">            </div>
+        
+        <div class="col-4">
+            <input type="text" id="cname" placeholder="enter country name" class="form-control"><br>
+        <button class="btn btn-info" type="button" onclick="search ()">Search</button>
+        </div>
+    <div class="col-3"></div>
+</div>
+    </div>
+    <div class="row"
+    >
+<div class="col-4"></div>
+<div class="col-4" id="result"></div>
+<div class="col-4"></div>
+</div>
+    
+</body>
+<script>
+    function search(){
+country=cname.value
+fertch(`https://restcountries.com/v2/name/${country}fullText=true`).then(res=>res.json())
+.then(data=>displaydata(data))
+    }
+    function displaydata(countryDetails){
+        cname=countryDetails[0].name
+        capital=countryDetails[0].capital
+        population=countryDetails[0].population
+        flag=countryDetails[0].flag
+        currency= countryDetails[0].currencies[0].code
+        symbol= countryDetails[0].currencies[0].symbol
+        lang= countryDetails[0].languages[0].name
+
+        htmldata=`<div class="card" style="width: 18rem;">
+  <img src="${flag}" class="card-img-top" alt="...">
+  <div class="card-body">
+    <h5 class="card-title">${cname}</h5>
+    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+  </div>
+  <ul class="list-group list-group-flush">
+    <li class="list-group-item">${capital}</li>
+    <li class="list-group-item">${popluation}</li>
+    <li class="list-group-item">${currency,symbol}</li>
+  
+    <li class="list-group-item">${lang}</li>
+  </ul>
+</div>`
+result.innerHTML=htmldata
+    }
+</script>
+</html>
